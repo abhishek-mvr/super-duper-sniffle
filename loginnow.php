@@ -3,8 +3,6 @@
 include_once 'gpConfig.php';
 include_once 'User.php';
 
-$_SESSION['uid']="";
-
 if(isset($_GET['code'])){
 	$gClient->authenticate($_GET['code']);
 	$_SESSION['token'] = $gClient->getAccessToken();
@@ -30,8 +28,7 @@ if ($gClient->getAccessToken()) {
 	//Insert or update user data to the database
 
   //ABHI :  SETTING uid AS A SESSION VARIABLE IN THE SESSION 
-$_SESSION["uid"] = $gpUserProfile['id'];
-$_SESSION['lselect']="login";
+$_SESSION["uid"] = $gpUserDatarProfile['id'];
     $gpUserData = array(
         'oauth_provider'=> 'google',
         'oauth_uid'     => $gpUserProfile['id'],
@@ -114,7 +111,6 @@ $_SESSION['lselect']="login";
     </ul>
 
 -->  <ul class="nav navbar-nav navbar-right">
-  <li><a href="home_join_ride.php" data-vivaldi-spatnav-clickable="1">Find a ride</a></li>
 </ul>
   <!--  <ul class="nav navbar-nav navbar-right">
 			<li><a href="logout.php" data-vivaldi-spatnav-clickable="1">Logout</a></li>
@@ -123,15 +119,15 @@ $_SESSION['lselect']="login";
 </div>
 </nav>
 
-<div class="jumbotron" >
-	<div id="headp">
-
-
-<h1>Share empty seats of your ride!</h1>
-<p>#made_with_love_in_RIT.</p>
+<div class = "jumbotron h3">
+<center>
+  <div id="headp">
+  You'll need to login/register first.
+  <div class = "h4">
+But dont worry, this wont take much time.
+</center>
 </div>
 </div>
-
 <div class="container"><?php echo $output; ?></div>
 <!--<a href="create_profile.php">update</a> -->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
